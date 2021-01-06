@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | Hexo</title>
+  <title>电影推荐系统 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="Movie-Recommender-System电影推荐系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电影推荐系统">
+<meta property="og:url" content="http://example.com/2021/01/06/first-test%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Movie-Recommender-System电影推荐系统">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-06T10:20:10.000Z">
+<meta property="article:modified_time" content="2021-01-06T10:27:23.096Z">
 <meta property="article:author" content="Monster">
 <meta name="twitter:card" content="summary">
   
@@ -146,76 +150,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-first-test博客" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      电影推荐系统
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/06/first-test%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+
+        
+        <a href="/2021/01/06/first-test%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
   	<time datetime="2021-01-06T10:20:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/06/first-test%E5%8D%9A%E5%AE%A2/">电影推荐系统</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Movie-Recommender-System"><a href="#Movie-Recommender-System" class="headerlink" title="Movie-Recommender-System"></a>Movie-Recommender-System</h1><p>电影推荐系统</p>
+<a id="more"></a>
+<h1 id="Movie-Recommender-System-1"><a href="#Movie-Recommender-System-1" class="headerlink" title="Movie-Recommender-System"></a>Movie-Recommender-System</h1><p> <strong>电影推荐系统</strong></p>
+<h1 id="一：系统环境搭建"><a href="#一：系统环境搭建" class="headerlink" title="一：系统环境搭建"></a>一：系统环境搭建</h1><p>注：以下操作基于root用户，非root用户部分操作前需加sudo指令</p>
+<h2 id="1-1-工具环境：Cent-OS-6-9"><a href="#1-1-工具环境：Cent-OS-6-9" class="headerlink" title="1.1 工具环境：Cent OS 6.9"></a>1.1 工具环境：Cent OS 6.9</h2><p>   <code>centos69-64\CentOS-6.9-x86_64-bin-DVD1.iso</code></p>
+<p><code>yum -y install gcc</code>安装gcc</p>
+<h2 id="1-2-MongoDB环境配置："><a href="#1-2-MongoDB环境配置：" class="headerlink" title="1.2 MongoDB环境配置："></a>1.2 MongoDB环境配置：</h2><p><strong><code>wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel62-3.4.3.tgz</code></strong><br>//通过wget下载Linux版本的MongoDB （<strong>mongodb-linux-x86_64-rhel62-3.4.3</strong>）</p>
+<p><strong><code>tar -xf</code></strong> // 将压缩包解压到指定目录</p>
+<p><strong><code>mv mongodb-linux-x86_64-rhel62-3.4.3 /usr/local/mongodb</code></strong><br> // 将解压后的文件移动到最终的安装目录</p>
+<p><strong><code>mkdir /usr/local/mongodb/data/</code></strong> //在安装目录下创建 data 文件夹用于存放数据和日志</p>
+<p><strong><code>mkdir /usr/local/mongodb/data/db/</code></strong>  //在 data 文件夹下创建 db 文件夹，用于存放数据</p>
+<p><strong><code>mkdir /usr/local/mongodb/data/logs/</code></strong>  //在 data 文件夹下创建 logs 文件夹，用于存放日志</p>
+<p><strong><code>touch/usr/local/mongodb/data/logs/mongodb.log</code></strong>  //在 logs 文件夹下创建 mongodb.log 文件</p>
+<p><strong><code>touch /usr/local/mongodb/data/mongodb.conf</code></strong>  //在 data 文件夹下创建 mongodb.conf 配置文件</p>
+<p><strong><code>cd /usr/local/mongodb</code></strong> //进入mongodb文件</p>
+<p><strong><code>vim ./data/mongodb.conf</code></strong> // 编辑mongodb.conf文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">**#端口号 </span><br><span class="line">port &#x3D; 27017 </span><br><span class="line">#数据目录 </span><br><span class="line">dbpath &#x3D; &#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;data&#x2F;db </span><br><span class="line">#日志目录 </span><br><span class="line">logpath &#x3D; &#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;data&#x2F;logs&#x2F;mongodb.log </span><br><span class="line">#设置后台运行 </span><br><span class="line">fork &#x3D; true </span><br><span class="line">#日志输出方式 </span><br><span class="line">logappend &#x3D; true </span><br><span class="line">#开启认证 </span><br><span class="line">#auth &#x3D; true**</span><br></pre></td></tr></table></figure>
+<p><strong><code>cd /usr/local/mongodb</code></strong> //进入mongodb文件</p>
+<p><strong><code>mongodb-linux-x86_64-rhel62-3.4.3/bin/mongod -config ./data/mongodb.conf</code></strong> //启动 MongoDB 服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">当出现</span><br><span class="line">about to fork child process, waiting until server is ready for connections.</span><br><span class="line">forked process: 27335</span><br><span class="line">child process started successfully, parent exiting 时,证明成功</span><br></pre></td></tr></table></figure>
+<p><strong><code>ps -ef | grep mongo</code></strong> //显示mongo进程，mongodb安装完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root      27335      1  0 23:16 ?        00:00:03 mongodb-linux-x86_64-rhel62-3.4.3&#x2F;bin&#x2F;mongod -config .&#x2F;data&#x2F;mongodb.conf</span><br><span class="line">root      27397   3723  0 23:26 pts&#x2F;0    00:00:00 grep mongo</span><br></pre></td></tr></table></figure>
+<p><strong><code>cd mongodb-linux-x86_64-rhel62-3.4.3/</code></strong> //进入mongodb-linux-x86_64-rhel62-3.4.3</p>
+<p><strong><code>bin/mongo</code></strong> //访问 MongoDB 服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">MongoDB shell version v3.4.3</span><br><span class="line">connecting to: mongodb:&#x2F;&#x2F;127.0.0.1:27017</span><br><span class="line">MongoDB server version: 3.4.3</span><br><span class="line">Welcome to the MongoDB shell.</span><br><span class="line">For interactive help, type &quot;help&quot;.</span><br><span class="line">For more comprehensive documentation, see</span><br><span class="line">	http:&#x2F;&#x2F;docs.mongodb.org&#x2F;</span><br><span class="line">Questions? Try the support group</span><br><span class="line">	http:&#x2F;&#x2F;groups.google.com&#x2F;group&#x2F;mongodb-user</span><br><span class="line">Server has startup warnings: </span><br><span class="line">2021-01-04T23:16:48.545+0800 I STORAGE  [initandlisten] </span><br><span class="line">2021-01-04T23:16:48.545+0800 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine</span><br><span class="line">2021-01-04T23:16:48.545+0800 I STORAGE  [initandlisten] **          See http:&#x2F;&#x2F;dochub.mongodb.org&#x2F;core&#x2F;prodnotes-filesystem</span><br><span class="line">2021-01-04T23:16:48.946+0800 I CONTROL  [initandlisten] </span><br><span class="line">2021-01-04T23:16:48.946+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.</span><br><span class="line">2021-01-04T23:16:48.946+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.</span><br><span class="line">2021-01-04T23:16:48.946+0800 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.</span><br><span class="line">2021-01-04T23:16:48.946+0800 I CONTROL  [initandlisten] </span><br><span class="line">2021-01-04T23:16:48.947+0800 I CONTROL  [initandlisten] </span><br><span class="line">2021-01-04T23:16:48.947+0800 I CONTROL  [initandlisten] ** WARNING: &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled is &#39;always&#39;.</span><br><span class="line">2021-01-04T23:16:48.947+0800 I CONTROL  [initandlisten] **        We suggest setting it to &#39;never&#39;</span><br><span class="line">2021-01-04T23:16:48.947+0800 I CONTROL  [initandlisten] </span><br><span class="line">2021-01-04T23:16:48.947+0800 I CONTROL  [initandlisten] ** WARNING: &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;defrag is &#39;always&#39;.</span><br><span class="line">2021-01-04T23:16:48.947+0800 I CONTROL  [initandlisten] **        We suggest setting it to &#39;never&#39;</span><br><span class="line">2021-01-04T23:16:48.947+0800 I CONTROL  [initandlisten] </span><br><span class="line">&gt; </span><br></pre></td></tr></table></figure>
+<p><strong><code>cd /usr/local/mongodb</code></strong></p>
+<p><strong><code>mongodb-linux-x86_64-rhel62-3.4.3/bin/mongod -shutdown -config  ./data/mongodb.conf</code></strong> //停止 MongoDB 服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killing process with pid: 27335</span><br></pre></td></tr></table></figure>
+<p><code>ps -ef | grep mongo</code>显示mongo进程，证明已结束进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root      27453   3723  0 23:58 pts&#x2F;0    00:00:00 grep mongo</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-Redis（单节点）环境配置："><a href="#1-3-Redis（单节点）环境配置：" class="headerlink" title="1.3 Redis（单节点）环境配置："></a>1.3 Redis（单节点）环境配置：</h2><p><code>wget http://download.redis.io/releases/redis-4.0.2.tar.gz</code> //通过 WGET 下载 REDIS 的源码</p>
+<p><code>tar -xf redis-4.0.2.tar.gz -C ~/</code> //解压</p>
+<p><code>cd redis-4.0.2/</code>进入Redis源码</p>
+<p><code>make MALLOC=libc</code>// 编译源代码</p>
+<p><code> make install</code>// 编译安装</p>
+<p><code>ll /usr/local/bin/redis-*</code>查看默认安装位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;</span><br><span class="line">mkdir redis</span><br><span class="line">cd .&#x2F;redis-4.0.2</span><br></pre></td></tr></table></figure>
+<p><code>vim ./redis.conf</code>// 修改配置文件内容</p>
+<p><code>set nu //显示行号</code><br><code>?daemonize //查找daemonize</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">daemonize yes #136 行 #是否以后台 daemon 方式运行，默认不是后台运行</span><br><span class="line"></span><br><span class="line">bind 0.0.0.0 #69 行 #绑定主机 IP，默认值为 127.0.0.1，我们是跨机器运行，所以需要更改，0.0.0.0即所有网卡都能提供redis服务</span><br><span class="line"></span><br><span class="line">logfile &quot;&#x2F;root&#x2F;桌面&#x2F;redis&#x2F;redis.log&quot; #171 行 #定义 log 文件位置，模式 log</span><br><span class="line"></span><br><span class="line">dir &quot;&#x2F;root&#x2F;桌面&#x2F;redis&#x2F;&quot; #本地数据库存放路径，默认为.&#x2F;，编译安装默认存在在&#x2F;usr&#x2F;local&#x2F;bin 下（可选）</span><br></pre></td></tr></table></figure>
+<p><code>cp ./redis-4.0.2/redis.conf ./redis</code>copy到redis目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost 桌面]# redis-server .&#x2F;redis&#x2F;redis.conf  &#x2F;&#x2F; 启动 Redis 服务器</span><br><span class="line"></span><br><span class="line">[root@localhost 桌面]# ls</span><br><span class="line"></span><br><span class="line">redis  redis-4.0.2  tree-1.8.0</span><br><span class="line"></span><br><span class="line">[root@localhost 桌面]# cd redis</span><br><span class="line"></span><br><span class="line">[root@localhost redis]# ls</span><br><span class="line"></span><br><span class="line">redis.conf  redis.log</span><br><span class="line"></span><br><span class="line">[root@localhost redis]# cat redis.log</span><br><span class="line"></span><br><span class="line">32783:C 05 Jan 15:08:11.961 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">32783:C 05 Jan 15:08:11.961 # Redis version&#x3D;4.0.2, bits&#x3D;64, commit&#x3D;00000000, modified&#x3D;0, pid&#x3D;32783, just started</span><br><span class="line">32783:C 05 Jan 15:08:11.961 # Configuration loaded</span><br><span class="line">32784:M 05 Jan 15:08:11.962 * Increased maximum number of open files to 10032 (it was originally set to 1024).</span><br><span class="line">                _._                                                  </span><br><span class="line">           _.-&#96;&#96;__ &#39;&#39;-._                                             </span><br><span class="line">      _.-&#96;&#96;    &#96;.  &#96;_.  &#39;&#39;-._           Redis 4.0.2 (00000000&#x2F;0) 64 bit</span><br><span class="line">  .-&#96;&#96; .-&#96;&#96;&#96;.  &#96;&#96;&#96;\&#x2F;    _.,_ &#39;&#39;-._                                   </span><br><span class="line"> (    &#39;      ,       .-&#96;  | &#96;,    )     Running in standalone mode</span><br><span class="line"> |&#96;-._&#96;-...-&#96; __...-.&#96;&#96;-._|&#39;&#96; _.-&#39;|     Port: 6379</span><br><span class="line"> |    &#96;-._   &#96;._    &#x2F;     _.-&#39;    |     PID: 32784</span><br><span class="line">  &#96;-._    &#96;-._  &#96;-.&#x2F;  _.-&#39;    _.-&#39;                                   </span><br><span class="line"> |&#96;-._&#96;-._    &#96;-.__.-&#39;    _.-&#39;_.-&#39;|                                  </span><br><span class="line"> |    &#96;-._&#96;-._        _.-&#39;_.-&#39;    |           http:&#x2F;&#x2F;redis.io        </span><br><span class="line">  &#96;-._    &#96;-._&#96;-.__.-&#39;_.-&#39;    _.-&#39;                                   </span><br><span class="line"> |&#96;-._&#96;-._    &#96;-.__.-&#39;    _.-&#39;_.-&#39;|                                  </span><br><span class="line"> |    &#96;-._&#96;-._        _.-&#39;_.-&#39;    |                                  </span><br><span class="line">  &#96;-._    &#96;-._&#96;-.__.-&#39;_.-&#39;    _.-&#39;                                   </span><br><span class="line">      &#96;-._    &#96;-.__.-&#39;    _.-&#39;                                       </span><br><span class="line">          &#96;-._        _.-&#39;                                           </span><br><span class="line">              &#96;-.__.-&#39;                                               </span><br><span class="line"></span><br><span class="line">32784:M 05 Jan 15:08:11.963 # WARNING: The TCP backlog setting of 511 cannot be enforced because &#x2F;proc&#x2F;sys&#x2F;net&#x2F;core&#x2F;somaxconn is set to the lower value of 128.</span><br><span class="line">32784:M 05 Jan 15:08:11.963 # Server initialized</span><br><span class="line">32784:M 05 Jan 15:08:11.963 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add &#39;vm.overcommit_memory &#x3D; 1&#39; to &#x2F;etc&#x2F;sysctl.conf and then reboot or run the command &#39;sysctl vm.overcommit_memory&#x3D;1&#39; for this to take effect.</span><br><span class="line">32784:M 05 Jan 15:08:11.963 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command &#39;echo never &gt; &#x2F;sys&#x2F;kernel&#x2F;mm&#x2F;transparent_hugepage&#x2F;enabled&#39; as root, and add it to your &#x2F;etc&#x2F;rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span><br><span class="line">32784:M 05 Jan 15:08:11.963 * Ready to accept connections</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p><code>[root@localhost redis]# redis-cli</code> //连接 Redis 服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; set a b &#96;&#x2F;&#x2F;测试</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line">&quot;b&quot;</span><br><span class="line">127.0.0.1:6379&gt; exit&#x2F;&#x2F;退出</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><code>[root@localhost redis]# redis-cli shutdown</code> // 停止 Redis 服务器</p>
+<h2 id="1-4-ElasticSearch（单节点）环境配置："><a href="#1-4-ElasticSearch（单节点）环境配置：" class="headerlink" title="1.4 ElasticSearch（单节点）环境配置："></a>1.4 ElasticSearch（单节点）环境配置：</h2><p><code>wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.2.tar.gz</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost 桌面]# ls</span><br><span class="line">elasticsearch-5.6.2.tar.gz  redis  redis-4.0.2  tree-1.8.0</span><br><span class="line">[root@localhost 桌面]# tar -xf elasticsearch-5.6.2.tar.gz </span><br><span class="line">[root@localhost 桌面]# ls</span><br><span class="line">elasticsearch-5.6.2  elasticsearch-5.6.2.tar.gz  redis  redis-4.0.2  tree-1.8.0</span><br><span class="line">[root@localhost 桌面]# mv elasticsearch-5.6.2 elasticsearch</span><br><span class="line">[root@localhost 桌面]# ls</span><br><span class="line">elasticsearch  elasticsearch-5.6.2.tar.gz  redis  redis-4.0.2  tree-1.8.0</span><br><span class="line">[root@localhost 桌面]# cd elasticsearch&#x2F;</span><br><span class="line">[root@localhost elasticsearch]# ls</span><br><span class="line">benchmarks             core               LICENSE.txt  README.textile</span><br><span class="line">bootstrap.memory_lock  dev-tools          migrate.sh   rest-api-spec</span><br><span class="line">build.gradle           distribution       modules      settings.gradle</span><br><span class="line">buildSrc               docs               NOTICE.txt   test</span><br><span class="line">client                 GRADLE.CHEATSHEET  plugins      TESTING.asciidoc</span><br><span class="line">CONTRIBUTING.md        gradle.properties  qa           Vagrantfile</span><br><span class="line">[root@localhost elasticsearch]# </span><br></pre></td></tr></table></figure>
+<p><strong><code>vim /etc/security/limits.conf</code></strong> // 修改文件数配置，在文件末尾添加如下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">\* soft nofile 65536 </span><br><span class="line">\* hard nofile 131072 </span><br><span class="line">\* soft nproc 2048 </span><br><span class="line">\* hard nproc 4096 </span><br><span class="line"> &#x2F;&#x2F; 修改* soft nproc 1024 为 * soft nproc 2048</span><br></pre></td></tr></table></figure>
+<p><strong><code>vim /etc/security/limits.d/90-nproc.conf</code></strong><br>* soft nproc 2048 #将该条目修改成 2048</p>
+<p><strong><code>vim /etc/sysctl.conf</code></strong><br>// 在文件末尾添加：vm.max_map_count=655360</p>
+<p><strong><code>sysctl -p</code></strong> //配置linux的参数，配置完成后，执行<strong>sudo sysctl -p</strong>，使配置生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost elasticsearch]#  sysctl -p</span><br><span class="line">net.ipv4.ip_forward &#x3D; 0</span><br><span class="line">net.ipv4.conf.default.rp_filter &#x3D; 1</span><br><span class="line">net.ipv4.conf.default.accept_source_route &#x3D; 0</span><br><span class="line">kernel.sysrq &#x3D; 0</span><br><span class="line">kernel.core_uses_pid &#x3D; 1</span><br><span class="line">net.ipv4.tcp_syncookies &#x3D; 1</span><br><span class="line">kernel.msgmnb &#x3D; 65536</span><br><span class="line">kernel.msgmax &#x3D; 65536</span><br><span class="line">kernel.shmmax &#x3D; 68719476736</span><br><span class="line">kernel.shmall &#x3D; 4294967296</span><br><span class="line">vm.max_map_count &#x3D; 655360</span><br></pre></td></tr></table></figure>
+<p><code>tar -xf  </code>/ 解压 ElasticSearch 到安装目录</p>
+<p><code>cd elasticsearch/</code> // 进入 ElasticSearch 安装目录</p>
+<p><code>mkdir elasticsearch/data/ </code> //创建 ElasticSearch 数据文件夹 data </p>
+<p><code>mkdir elasticsearch-5.6.2/logs/</code> // 创建 ElasticSearch 日志文件夹 logs </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: es-cluster #设置集群的名称</span><br><span class="line">node.name: es-node #修改当前节点的名称</span><br><span class="line">path.data: &#x2F;root&#x2F;桌面&#x2F;elasticsearch&#x2F;elasticsearch&#x2F;data #修改</span><br><span class="line">数据路径</span><br><span class="line">path.logs: &#x2F;root&#x2F;桌面&#x2F;elasticsearch&#x2F;elasticsearch&#x2F;logs #修改</span><br><span class="line">日志路径</span><br><span class="line">bootstrap.memory_lock: false #设置 ES 节点允许内存交换</span><br><span class="line">bootstrap.system_call_filter: false #禁用系统调用过滤器</span><br><span class="line">network.host: localhost #设置当前主机名称</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;localhost&quot;] #设置集群的主机列表,若此时有多个集群应在此列出，此时仅为单节点故只列本机</span><br></pre></td></tr></table></figure>
 
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/01/06/first-test%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/06/hello-world/" class="archive-article-date">
-  	<time datetime="2021-01-05T17:51:13.528Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/06/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/06/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -238,8 +386,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
